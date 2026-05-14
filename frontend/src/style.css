@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { font-family: 'DM Sans', sans-serif; background: #0a0a0a; color: #f5f5f5; -webkit-font-smoothing: antialiased; }
+  h1,h2,h3,h4,h5,h6 { font-family: 'Syne', sans-serif; }
+}
+
+@layer components {
+  .btn { @apply font-body font-medium px-4 py-2.5 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2; }
+  .btn-primary { @apply btn bg-accent text-white hover:bg-accent-dark focus:ring-accent/40; }
+  .btn-secondary { @apply btn bg-ink-700 text-ink-100 border border-ink-600 hover:bg-ink-600 focus:ring-ink-500/40; }
+  .btn-danger { @apply btn bg-rose-600 text-white hover:bg-rose-500 focus:ring-rose-500/40; }
+  .btn-success { @apply btn bg-emerald-600 text-white hover:bg-emerald-500 focus:ring-emerald-500/40; }
+  .btn-warning { @apply btn bg-amber-600 text-white hover:bg-amber-500 focus:ring-amber-500/40; }
+  .btn-ghost { @apply btn text-ink-300 hover:text-white hover:bg-ink-700 focus:ring-ink-500/40; }
+  .input { @apply w-full bg-ink-800 border border-ink-600 text-ink-50 rounded-lg px-4 py-3 font-body focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent placeholder:text-ink-400 transition-all; }
+  .card { @apply bg-ink-800 border border-ink-700 rounded-xl; }
+  .badge { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium border; }
+  .badge-student { @apply badge bg-accent/15 text-accent-light border-accent/30; }
+  .badge-teacher { @apply badge bg-amber-500/15 text-amber-400 border-amber-500/30; }
+  .badge-admin { @apply badge bg-rose-500/15 text-rose-400 border-rose-500/30; }
+  .badge-pending { @apply badge bg-amber-500/15 text-amber-400 border-amber-500/30; }
+  .badge-approved { @apply badge bg-emerald-500/15 text-emerald-400 border-emerald-500/30; }
+  .badge-rejected { @apply badge bg-rose-500/15 text-rose-400 border-rose-500/30; }
+  .badge-active { @apply badge bg-emerald-500/15 text-emerald-400 border-emerald-500/30; }
+  .badge-suspended { @apply badge bg-rose-500/15 text-rose-400 border-rose-500/30; }
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
