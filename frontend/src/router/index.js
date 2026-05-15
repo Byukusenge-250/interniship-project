@@ -11,6 +11,8 @@ const routes = [
   { path: '/profile', component: () => import('../views/ProfileView.vue'), meta: { requiresAuth: true } },
   { path: '/teacher', component: () => import('../views/TeacherView.vue'), meta: { requiresAuth: true, role: 'teacher' } },
   { path: '/admin', component: () => import('../views/AdminView.vue'), meta: { requiresAuth: true, role: 'admin' } },
+  { path: '/verify-teacher', component: () => import('../views/TeacherVerifyView.vue'), meta: { guest: true } },
+  { path: '/verify-student', component: () => import('../views/StudentVerifyView.vue'), meta: { guest: true } },
   { path: '/:pathMatch(.*)*', redirect: '/projects' }
 ]
 

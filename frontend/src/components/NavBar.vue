@@ -65,6 +65,7 @@ import { computed } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 import { useToast } from '../composables/useToast'
+import NavLink from './NavLink.vue'
 
 const auth = useAuthStore()
 const router = useRouter()
@@ -81,21 +82,4 @@ const logout = () => {
   toast.info('Logged out')
   router.push('/')
 }
-</script>
-
-<script>
-import { defineComponent, h } from 'vue'
-import { RouterLink, useRoute } from 'vue-router'
-
-export const NavLink = defineComponent({
-  props: ['to'],
-  setup(props, { slots }) {
-    const route = useRoute()
-    return () => h(RouterLink, {
-      to: props.to,
-      class: ['px-3 py-2 rounded-lg text-sm font-body font-medium transition-all duration-150',
-        route.path === props.to ? 'text-white bg-ink-700' : 'text-ink-300 hover:text-white hover:bg-ink-700'].join(' ')
-    }, slots.default)
-  }
-})
 </script>

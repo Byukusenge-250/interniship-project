@@ -80,6 +80,14 @@ const submit = async () => {
   error.value = ''
   const res = await auth.login(form.email, form.password)
   if (res.success) {
+    if (res.needs2SV) {
+      router.push('/verify-teacher')
+      return
+    }
+    if (res.needsStudentVerification) {
+      router.push('/verify-student')
+      return
+    }
     toast.success(`Welcome back, ${auth.user.name}!`)
     if (auth.isAdmin) router.push('/admin')
     else if (auth.isTeacher) router.push('/teacher')

@@ -6,6 +6,7 @@ export const useAuthStore = defineStore('auth', () => {
   const user = ref(JSON.parse(localStorage.getItem('user') || 'null'))
   const token = ref(localStorage.getItem('token') || null)
   const loading = ref(false)
+  const pendingUser = ref(null)
 
   const isAuthenticated = computed(() => !!token.value && !!user.value)
   const isAdmin = computed(() => user.value?.role === 'admin')
@@ -16,6 +17,8 @@ export const useAuthStore = defineStore('auth', () => {
     user.value = u; token.value = t
     localStorage.setItem('user', JSON.stringify(u))
     localStorage.setItem('token', t)
+    api.defaults.headers.common['Authorization'] = `Bearer ${t}`
+    pendingUser.value = null
   }
 
   const clearAuth = () => {
@@ -27,6 +30,14 @@ export const useAuthStore = defineStore('auth', () => {
     loading.value = true
     try {
       const { data } = await api.post('/auth/login', { email, password })
+      if (data.needs2SV) {
+        pendingUser.value = data.user
+        return { success: true, needs2SV: true }
+      }
+      if (data.needsStudentVerification) {
+        pendingUser.value = data.user
+        return { success: true, needsStudentVerification: true }
+      }
       setAuth(data.user, data.token)
       return { success: true }
     } catch (err) {
@@ -34,10 +45,34 @@ export const useAuthStore = defineStore('auth', () => {
     } finally { loading.value = false }
   }
 
-  const register = async (name, email, password, role) => {
+  const verifyTeacher = async (code) => {
+    if (!pendingUser.value) return { success: false, message: 'No pending login' }
     loading.value = true
     try {
-      const { data } = await api.post('/auth/register', { name, email, password, role })
+      const { data } = await api.post('/auth/verify-teacher', { userId: pendingUser.value._id, code })
+      setAuth(data.user, data.token)
+      return { success: true }
+    } catch (err) {
+      return { success: false, message: err.response?.data?.message || 'Verification failed' }
+    } finally { loading.value = false }
+  }
+
+  const verifyStudent = async (code) => {
+    if (!pendingUser.value) return { success: false, message: 'No pending login' }
+    loading.value = true
+    try {
+      const { data } = await api.post('/auth/verify-student', { userId: pendingUser.value._id, code })
+      setAuth(data.user, data.token)
+      return { success: true }
+    } catch (err) {
+      return { success: false, message: err.response?.data?.message || 'Verification failed' }
+    } finally { loading.value = false }
+  }
+
+  const register = async (name, email, password, role, accessCode = '') => {
+    loading.value = true
+    try {
+      const { data } = await api.post('/auth/register', { name, email, password, role, accessCode })
       setAuth(data.user, data.token)
       return { success: true }
     } catch (err) {

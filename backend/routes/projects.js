@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Project = require('../models/Project');
-const { authenticate, requireTeacher } = require('../middleware/auth');
+const { authenticate, requireTeacher, requireVerifiedStudent } = require('../middleware/auth');
 
-router.get('/', authenticate, async (req, res) => {
+router.get('/', authenticate, requireVerifiedStudent, async (req, res) => {
   try {
     const { category, status, search } = req.query;
     const filter = {};
@@ -28,7 +28,7 @@ router.get('/', authenticate, async (req, res) => {
   }
 });
 
-router.get('/my', authenticate, async (req, res) => {
+router.get('/my', authenticate, requireVerifiedStudent, async (req, res) => {
   try {
     const projects = await Project.find({ userId: req.user._id }).sort({ createdAt: -1 });
     res.json({ projects });
@@ -48,7 +48,7 @@ router.get('/:id', authenticate, async (req, res) => {
   }
 });
 
-router.post('/', authenticate, async (req, res) => {
+router.post('/', authenticate, requireVerifiedStudent, async (req, res) => {
   try {
     const { title, description, technologies, githubUrl, liveUrl, imageUrl, category } = req.body;
     if (!title || !description) return res.status(400).json({ message: 'Title and description required.' });

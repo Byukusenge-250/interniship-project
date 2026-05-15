@@ -36,6 +36,12 @@
               </button>
             </div>
           </div>
+          <div v-if="form.role === 'teacher'" class="animate-slide-in">
+            <label class="block text-sm font-medium text-ink-200 mb-2">Teacher Access Code</label>
+            <input v-model="form.accessCode" type="password" placeholder="Enter teacher secret code" class="input border-amber-500/50 focus:ring-amber-500/50" required />
+            <p class="text-[10px] text-amber-400/80 mt-1.5 ml-1">🔒 Only authorized staff can register as teachers.</p>
+          </div>
+
           <div v-if="error" class="bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm px-4 py-3 rounded-lg">{{ error }}</div>
           <button type="submit" :disabled="auth.loading" class="btn-primary w-full py-3">
             {{ auth.loading ? 'Creating...' : 'Create Account' }}
@@ -58,7 +64,7 @@ import { useToast } from '../composables/useToast'
 const auth = useAuthStore()
 const router = useRouter()
 const toast = useToast()
-const form = reactive({ name: '', email: '', password: '', role: 'student' })
+const form = reactive({ name: '', email: '', password: '', role: 'student', accessCode: '' })
 const error = ref('')
 const roles = [
   { value: 'student', icon: '🎓', label: 'Student' },
@@ -67,7 +73,7 @@ const roles = [
 
 const submit = async () => {
   error.value = ''
-  const res = await auth.register(form.name, form.email, form.password, form.role)
+  const res = await auth.register(form.name, form.email, form.password, form.role, form.accessCode)
   if (res.success) {
     toast.success('Account created! Welcome 🎉')
     router.push(auth.isTeacher ? '/teacher' : '/projects')
