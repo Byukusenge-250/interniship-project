@@ -113,7 +113,7 @@ const stats = computed(() => [
   { label: 'Rejected', value: pStore.projects.filter(p=>p.status==='rejected').length, color: 'text-rose-400' },
 ])
 
-const emoji = c => ({ web:'🌐', mobile:'📱', ai:'🤖', data:'📊', game:'🎮', other:'💡' })[c] || '💡'
+const emoji = c => ({ web:'🌐', mobile:'📱', data:'📊', game:'🎮', other:'💡' })[c] || '💡'
 const fmt = d => d ? new Date(d).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }) : ''
 
 const setStatus = async (p, s) => {

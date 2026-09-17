@@ -39,41 +39,31 @@
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-light opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-light"></span>
           </span>
-          🎉 Now open for all universities
+          Now open for all universities
         </div>
 
-        <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] mb-8">
-          Where Students
-          <span class="relative inline-block">
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-light via-violet-400 to-fuchsia-400">Build</span>
-            <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none"><path d="M2 8c40-6 80-6 120-2s56 4 76 0" stroke="url(#grad)" stroke-width="3" stroke-linecap="round"/><defs><linearGradient id="grad"><stop stop-color="#818cf8"/><stop offset="1" stop-color="#c084fc"/></linearGradient></defs></svg>
-          </span>
-          ,<br class="hidden sm:block"/>
-          Showcase &amp; <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Succeed</span>
+        <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.06] mb-8 max-w-4xl mx-auto">
+          <span class="block">A place for students to</span>
+          <span class="block mt-2 text-white">share projects</span>
+          <span class="block mt-2 text-white">and get <span class="text-emerald-400">feedback</span></span>
         </h1>
 
         <p class="text-lg lg:text-xl text-ink-400 max-w-2xl mx-auto leading-relaxed mb-12">
-          The all-in-one academic portal for submitting projects, getting teacher feedback, and tracking your progress — beautifully designed for the modern campus.
+          Students submit their work, teachers review and give feedback, and admins keep things running. Simple as that.
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
           <RouterLink to="/register" class="group w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-accent to-violet-500 text-white rounded-full font-bold text-lg shadow-[0_4px_30px_rgba(99,102,241,0.4)] hover:shadow-[0_4px_50px_rgba(99,102,241,0.6)] transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2">
-            Get Started Free
+            Get Started
             <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
           </RouterLink>
           <a href="#features" class="w-full sm:w-auto px-8 py-4 bg-ink-800/80 hover:bg-ink-700 text-white rounded-full font-bold text-lg border border-white/10 transition-all hover:-translate-y-0.5">
-            See How It Works
+            How It Works
           </a>
         </div>
       </div>
 
-      <!-- Stats bar -->
-      <div class="relative max-w-4xl mx-auto mt-20 grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div v-for="s in stats" :key="s.label" class="text-center p-6 rounded-2xl bg-ink-800/40 backdrop-blur border border-white/5">
-          <div class="text-3xl lg:text-4xl font-display font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-ink-300">{{ s.value }}</div>
-          <div class="text-xs text-ink-400 mt-1 font-medium uppercase tracking-wider">{{ s.label }}</div>
-        </div>
-      </div>
+
     </section>
 
     <!-- ═══════════ FEATURES ═══════════ -->
@@ -81,12 +71,12 @@
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
           <span class="text-accent text-sm font-bold uppercase tracking-widest">Features</span>
-          <h2 class="font-display text-4xl lg:text-5xl font-extrabold mt-3">Everything You Need</h2>
-          <p class="text-ink-400 mt-4 max-w-xl mx-auto">A complete toolkit for students, teachers, and admins to manage the academic project lifecycle.</p>
+          <h2 class="font-display text-4xl lg:text-5xl font-extrabold mt-3">What it does</h2>
+          <p class="text-ink-400 mt-4 max-w-xl mx-auto">Tools for students, teachers, and admins to handle project submissions and reviews.</p>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div v-for="f in features" :key="f.title" class="group p-8 rounded-3xl bg-ink-800/40 border border-white/5 hover:border-accent/30 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/5">
-            <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-3xl transition-transform duration-300 group-hover:scale-110" :class="f.bg">{{ f.icon }}</div>
+            <div class="w-2 h-2 rounded-full mb-6" :class="f.bg"></div>
             <h3 class="text-xl font-bold font-display mb-2">{{ f.title }}</h3>
             <p class="text-ink-400 leading-relaxed text-sm">{{ f.desc }}</p>
           </div>
@@ -99,8 +89,8 @@
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
           <span class="text-cyan-400 text-sm font-bold uppercase tracking-widest">Showcase</span>
-          <h2 class="font-display text-4xl lg:text-5xl font-extrabold mt-3">Featured Projects</h2>
-          <p class="text-ink-400 mt-4 max-w-xl mx-auto">Check out some of the amazing projects submitted by our students.</p>
+          <h2 class="font-display text-4xl lg:text-5xl font-extrabold mt-3">Example Projects</h2>
+          <p class="text-ink-400 mt-4 max-w-xl mx-auto">Here are some of the projects students have submitted on the platform.</p>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
           <div v-for="proj in projects" :key="proj.title" class="group rounded-3xl bg-ink-800/60 border border-white/5 overflow-hidden hover:border-accent/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/5">
@@ -139,7 +129,7 @@
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16">
           <span class="text-emerald-400 text-sm font-bold uppercase tracking-widest">How It Works</span>
-          <h2 class="font-display text-4xl lg:text-5xl font-extrabold mt-3">Simple as 1-2-3</h2>
+          <h2 class="font-display text-4xl lg:text-5xl font-extrabold mt-3">How it works</h2>
         </div>
         <div class="grid md:grid-cols-3 gap-8">
           <div v-for="(step, i) in steps" :key="i" class="relative text-center p-8">
@@ -157,12 +147,11 @@
     <section class="relative py-28 px-6">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
-          <span class="text-amber-400 text-sm font-bold uppercase tracking-widest">For Everyone</span>
-          <h2 class="font-display text-4xl lg:text-5xl font-extrabold mt-3">Built for Every Role</h2>
+          <span class="text-amber-400 text-sm font-bold uppercase tracking-widest">Roles</span>
+          <h2 class="font-display text-4xl lg:text-5xl font-extrabold mt-3">Who it's for</h2>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
           <div v-for="r in roles" :key="r.title" class="rounded-3xl p-8 border transition-all duration-300 hover:-translate-y-1" :class="r.border">
-            <div class="text-5xl mb-6">{{ r.icon }}</div>
             <h3 class="text-2xl font-display font-bold mb-3">{{ r.title }}</h3>
             <ul class="space-y-3">
               <li v-for="p in r.perks" :key="p" class="flex items-start gap-2 text-sm text-ink-300">
@@ -179,8 +168,8 @@
     <section id="testimonials" class="relative py-28 px-6 bg-ink-800/30">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
-          <span class="text-fuchsia-400 text-sm font-bold uppercase tracking-widest">Testimonials</span>
-          <h2 class="font-display text-4xl lg:text-5xl font-extrabold mt-3">Loved by Students &amp; Teachers</h2>
+          <span class="text-fuchsia-400 text-sm font-bold uppercase tracking-widest">Feedback</span>
+          <h2 class="font-display text-4xl lg:text-5xl font-extrabold mt-3">What people say</h2>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
           <div v-for="t in testimonials" :key="t.name" class="p-8 rounded-3xl bg-ink-800/50 border border-white/5 backdrop-blur-sm">
@@ -204,10 +193,10 @@
     <section class="relative py-28 px-6">
       <div class="max-w-3xl mx-auto text-center">
         <div class="p-12 md:p-16 rounded-[2rem] bg-gradient-to-br from-accent/20 via-violet-500/10 to-fuchsia-500/10 border border-accent/20 backdrop-blur-xl">
-          <h2 class="font-display text-4xl lg:text-5xl font-extrabold mb-4">Ready to Get Started?</h2>
-          <p class="text-ink-400 mb-10 max-w-lg mx-auto">Join thousands of students already showcasing their best work. It's free, fast, and beautiful.</p>
+          <h2 class="font-display text-4xl lg:text-5xl font-extrabold mb-4">Ready to start?</h2>
+          <p class="text-ink-400 mb-10 max-w-lg mx-auto">Create an account and start uploading your projects for review.</p>
           <RouterLink to="/register" class="inline-flex items-center gap-2 px-10 py-4 bg-white text-ink-900 rounded-full font-bold text-lg hover:bg-ink-100 transition-all hover:scale-105 active:scale-95 shadow-xl">
-            Create Your Account
+            Create an account
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
           </RouterLink>
         </div>
@@ -238,47 +227,40 @@ const onScroll = () => { scrolled.value = window.scrollY > 20 }
 onMounted(() => window.addEventListener('scroll', onScroll))
 onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
-const stats = [
-  { value: '2,500+', label: 'Students' },
-  { value: '180+', label: 'Projects' },
-  { value: '45+', label: 'Teachers' },
-  { value: '98%', label: 'Satisfaction' },
-]
-
 const features = [
-  { icon: '🚀', title: 'Project Showcase', desc: 'Submit and display your projects with rich descriptions, tech stacks, and GitHub links.', bg: 'bg-accent/10' },
-  { icon: '📝', title: 'Teacher Reviews', desc: 'Teachers approve, reject, or request changes with detailed feedback on every project.', bg: 'bg-amber-500/10' },
-  { icon: '📊', title: 'Admin Dashboard', desc: 'Full control panel for managing users, monitoring activity, and overseeing all projects.', bg: 'bg-emerald-500/10' },
-  { icon: '🔒', title: 'Role-Based Access', desc: 'Secure authentication with distinct permissions for students, teachers, and admins.', bg: 'bg-rose-500/10' },
-  { icon: '🎨', title: 'Beautiful Interface', desc: 'Dark-themed, responsive design that looks incredible on every device and screen size.', bg: 'bg-violet-500/10' },
-  { icon: '⚡', title: 'Real-Time Updates', desc: 'Instant notifications when your project status changes or you receive new feedback.', bg: 'bg-cyan-500/10' },
+  { title: 'Submit projects', desc: 'Students upload their work with a title, description, tech stack, and GitHub link.', bg: 'bg-accent/10' },
+  { title: 'Teacher review', desc: 'Teachers approve or reject submissions and leave feedback on each project.', bg: 'bg-amber-500/10' },
+  { title: 'Admin panel', desc: 'Admins manage users, change roles, and have full oversight over all projects.', bg: 'bg-emerald-500/10' },
+  { title: 'Role-based access', desc: 'Students, teachers, and admins each have their own views and permissions.', bg: 'bg-rose-500/10' },
+  { title: 'Clean interface', desc: 'Dark-themed and responsive — works well on desktop and mobile.', bg: 'bg-violet-500/10' },
+  { title: 'Status tracking', desc: 'Students can see whether their project is pending, approved, or rejected.', bg: 'bg-cyan-500/10' },
 ]
 
 const steps = [
-  { title: 'Create Your Account', desc: 'Sign up as a student, teacher, or admin in just a few seconds — no credit card required.' },
-  { title: 'Submit Your Project', desc: 'Add your project details, technologies used, and GitHub link for teacher review.' },
-  { title: 'Get Feedback & Grow', desc: 'Receive teacher approval and feedback. Track your portfolio as it grows.' },
+  { title: 'Create an account', desc: 'Sign up as a student or teacher. No credit card needed.' },
+  { title: 'Submit a project', desc: 'Add your project title, description, technologies, and GitHub link.' },
+  { title: 'Get feedback', desc: 'A teacher will review your project and approve, reject, or leave comments.' },
 ]
 
 const roles = [
-  { title: 'Students', icon: '🎓', border: 'border-accent/20 bg-accent/5', check: 'text-accent-light',
-    perks: ['Submit unlimited projects', 'Track approval status', 'Build a public portfolio', 'Receive teacher feedback'] },
-  { title: 'Teachers', icon: '👨‍🏫', border: 'border-amber-500/20 bg-amber-500/5', check: 'text-amber-400',
-    perks: ['Review student projects', 'Approve or reject submissions', 'Provide detailed feedback', 'Monitor class progress'] },
-  { title: 'Admins', icon: '🔐', border: 'border-rose-500/20 bg-rose-500/5', check: 'text-rose-400',
-    perks: ['Manage all users & roles', 'Full project oversight', 'Platform analytics', 'Suspend or activate accounts'] },
+  { title: 'Students', border: 'border-accent/20 bg-accent/5', check: 'text-accent-light',
+    perks: ['Upload projects', 'Track review status', 'See teacher feedback', 'Build a portfolio'] },
+  { title: 'Teachers', border: 'border-amber-500/20 bg-amber-500/5', check: 'text-amber-400',
+    perks: ['Review submissions', 'Approve or reject projects', 'Leave feedback', 'See all student projects'] },
+  { title: 'Admins', border: 'border-rose-500/20 bg-rose-500/5', check: 'text-rose-400',
+    perks: ['Manage users and roles', 'Full project oversight', 'Suspend or activate accounts', 'Delete users or projects'] },
 ]
 
 const testimonials = [
-  { name: 'Alex Chen', role: 'Computer Science Student', quote: 'StudentForge completely changed how I present my work. My portfolio helped me land an internship!', bg: 'bg-accent/20 text-accent-light' },
-  { name: 'Prof. Sarah Johnson', role: 'Software Engineering Teacher', quote: 'Reviewing student projects has never been easier. The interface is clean and the workflow is seamless.', bg: 'bg-amber-500/20 text-amber-400' },
-  { name: 'Maria Silva', role: 'Data Science Student', quote: 'I love the dark theme and the smooth animations. It feels like a professional-grade tool, not a school app.', bg: 'bg-emerald-500/20 text-emerald-400' },
+  { name: 'Alex Chen', role: 'Computer Science Student', quote: 'It helped me organize and share my projects in one place. Teachers could see everything easily.', bg: 'bg-accent/20 text-accent-light' },
+  { name: 'Sarah Johnson', role: 'Software Engineering Teacher', quote: 'Makes reviewing student work much easier. I can see all submissions and leave feedback in one place.', bg: 'bg-amber-500/20 text-amber-400' },
+  { name: 'Maria Silva', role: 'Data Science Student', quote: 'I liked being able to track the status of each project I submitted and see teacher comments.', bg: 'bg-emerald-500/20 text-emerald-400' },
 ]
 
 const projects = [
   {
     title: 'Vue.js E-Commerce Platform',
-    desc: 'Full-featured e-commerce with cart, checkout, and admin panel built with modern web technologies.',
+    desc: 'An e-commerce site with cart, checkout, and admin panel.',
     tech: ['Vue.js', 'Node.js', 'MongoDB', 'Stripe'],
     emoji: '🛒',
     gradient: 'bg-gradient-to-br from-accent/30 to-violet-600/30',
@@ -289,11 +271,11 @@ const projects = [
     authorBg: 'bg-accent/20 text-accent-light'
   },
   {
-    title: 'AI Study Assistant',
-    desc: 'AI-powered study assistant that generates flashcards and quizzes from uploaded PDF documents.',
-    tech: ['Python', 'FastAPI', 'React', 'OpenAI'],
-    emoji: '🤖',
-    gradient: 'bg-gradient-to-br from-fuchsia-500/30 to-rose-500/30',
+    title: 'Campus Study Planner',
+    desc: 'A planning app to organize coursework, deadlines, and revision sessions.',
+    tech: ['Vue.js', 'Express', 'MongoDB', 'Tailwind'],
+    emoji: '📚',
+    gradient: 'bg-gradient-to-br from-sky-500/20 to-violet-500/20',
     status: 'Approved',
     statusClass: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
     author: 'Maria Silva',
@@ -325,18 +307,18 @@ const projects = [
 }
 .blob-1 {
   width: 500px; height: 500px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, rgba(148, 163, 184, 0.6), rgba(165, 180, 252, 0.55));
   top: 5%; left: 15%;
 }
 .blob-2 {
   width: 400px; height: 400px;
-  background: linear-gradient(135deg, #8b5cf6, #d946ef);
+  background: linear-gradient(135deg, rgba(196, 181, 253, 0.5), rgba(125, 211, 252, 0.45));
   top: 20%; right: 10%;
   animation-delay: -3s;
 }
 .blob-3 {
   width: 350px; height: 350px;
-  background: linear-gradient(135deg, #06b6d4, #6366f1);
+  background: linear-gradient(135deg, rgba(110, 231, 183, 0.4), rgba(148, 163, 184, 0.45));
   bottom: 10%; left: 40%;
   animation-delay: -5s;
 }

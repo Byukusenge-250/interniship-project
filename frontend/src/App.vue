@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-ink-900">
+  <div class="min-h-screen bg-[#0b1020] text-white antialiased">
     <NavBar v-if="auth.isAuthenticated" />
     <main :class="auth.isAuthenticated ? 'pt-16' : ''">
       <RouterView />

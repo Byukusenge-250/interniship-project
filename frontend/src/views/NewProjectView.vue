@@ -18,7 +18,6 @@
           <select v-model="form.category" class="input">
             <option value="web">🌐 Web</option>
             <option value="mobile">📱 Mobile</option>
-            <option value="ai">🤖 AI/ML</option>
             <option value="data">📊 Data Science</option>
             <option value="game">🎮 Game</option>
             <option value="other">💡 Other</option>

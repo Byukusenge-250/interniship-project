@@ -237,7 +237,6 @@
                 <select v-model="editForm.category" class="input">
                   <option value="web">🌐 Web</option>
                   <option value="mobile">📱 Mobile</option>
-                  <option value="ai">🤖 AI</option>
                   <option value="data">📊 Data</option>
                   <option value="game">🎮 Game</option>
                   <option value="other">💡 Other</option>
@@ -315,7 +314,7 @@ const statCards = computed(() => {
 })
 
 const fmtDate = d => d ? new Date(d).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }) : ''
-const projEmoji = c => ({ web:'🌐', mobile:'📱', ai:'🤖', data:'📊', game:'🎮', other:'💡' })[c] || '💡'
+const projEmoji = c => ({ web:'🌐', mobile:'📱', data:'📊', game:'🎮', other:'💡' })[c] || '💡'
 
 const loadUsers = () => {
   const p = {}

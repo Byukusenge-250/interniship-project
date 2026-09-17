@@ -32,6 +32,6 @@
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 const props = defineProps({ project: Object })
-const emoji = computed(() => ({ web:'🌐', mobile:'📱', ai:'🤖', data:'📊', game:'🎮', other:'💡' })[props.project.category] || '💡')
+const emoji = computed(() => ({ web:'🌐', mobile:'📱', data:'📊', game:'🎮', other:'💡' })[props.project.category] || '💡')
 const fmtDate = d => d ? new Date(d).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' }) : ''
 </script>

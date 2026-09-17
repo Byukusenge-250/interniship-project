@@ -101,7 +101,7 @@ const project = ref(null)
 const loading = ref(true)
 const error = ref('')
 
-const emoji = computed(() => ({ web:'🌐', mobile:'📱', ai:'🤖', data:'📊', game:'🎮', other:'💡' })[project.value?.category] || '💡')
+const emoji = computed(() => ({ web:'🌐', mobile:'📱', data:'📊', game:'🎮', other:'💡' })[project.value?.category] || '💡')
 const fmtDate = d => d ? new Date(d).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : ''
 
 const fetchProject = async (id) => {
